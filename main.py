@@ -47,6 +47,12 @@ def check_winner():
         return "No One Yet"
 
 
+def board_full():
+    if sorted(list(set(index))) == ["O","X"]:
+        return True
+    else:
+        return False
+
 def main():
     intro = "Welcome To Tic Tac Toe\nPlayer 1 is X and Player 2 is O"
     print(intro)
@@ -67,12 +73,20 @@ def main():
             if check_winner() == "The Winner Is X":
                 print(check_winner())
                 break
+            elif board_full():
+                displayBoard()
+                print("Draw")
+                break
 
             displayBoard()
             print("Player 2, it is your go!")
             plotter(int(input("Enter Position : ")), 2)
             if check_winner() == "The Winner Is O":
                 print(check_winner())
+                break
+            elif board_full():
+                displayBoard()
+                print("Draw")
                 break
 
 
