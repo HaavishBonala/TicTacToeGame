@@ -71,6 +71,7 @@ def main():
             plotter(int(input("Enter Position : ")), 1)
             check_winner()
             if check_winner() == "The Winner Is X":
+                displayBoard()
                 print(check_winner())
                 break
             elif board_full():
@@ -82,6 +83,7 @@ def main():
             print("Player 2, it is your go!")
             plotter(int(input("Enter Position : ")), 2)
             if check_winner() == "The Winner Is O":
+                displayBoard()
                 print(check_winner())
                 break
             elif board_full():
