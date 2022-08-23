@@ -48,24 +48,22 @@ def check_winner():
 
 
 def board_full():
-    if sorted(list(set(index))) == ["O","X"]:
+    if sorted(list(set(index))) == ["O", "X"]:
         return True
     else:
         return False
 
+
 def main():
     intro = "Welcome To Tic Tac Toe\nPlayer 1 is X and Player 2 is O"
     print(intro)
-    while True:
 
+    while True:
         again = input("Do you want to play? Yes Or No : ")
 
-        if again == "Yes":
-            pass
-        else:
-            break
-
         while check_winner() == "No One Yet":
+            if again.lower() != "yes" or "ye" or "y":
+                break
             displayBoard()
             print("Player 1, it is your go!")
             plotter(int(input("Enter Position : ")), 1)
@@ -90,6 +88,9 @@ def main():
                 displayBoard()
                 print("Draw")
                 break
+
+        if again.lower() != "yes" or "ye" or "y":
+            break
 
 
 if __name__ == "__main__":
